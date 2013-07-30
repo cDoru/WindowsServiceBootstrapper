@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceBootstrapper", "WindowsServiceBootstrapper\WindowsServiceBootstrapper.csproj", "{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceBootstrapper.Interfaces", "WindowsServiceBootstrapper.Interfaces\WindowsServiceBootstrapper.Interfaces.csproj", "{508875C7-294F-41A5-9BE1-7D0C17CB3526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceBootstrapper.UnitTests", "WindowsServiceBootstrapper.UnitTests\WindowsServiceBootstrapper.UnitTests.csproj", "{B12E035D-300C-4975-A51E-A4725AA55D9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ECF2097A-8316-42B4-B6D9-70592A4342A0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508875C7-294F-41A5-9BE1-7D0C17CB3526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508875C7-294F-41A5-9BE1-7D0C17CB3526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508875C7-294F-41A5-9BE1-7D0C17CB3526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508875C7-294F-41A5-9BE1-7D0C17CB3526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12E035D-300C-4975-A51E-A4725AA55D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12E035D-300C-4975-A51E-A4725AA55D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12E035D-300C-4975-A51E-A4725AA55D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12E035D-300C-4975-A51E-A4725AA55D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

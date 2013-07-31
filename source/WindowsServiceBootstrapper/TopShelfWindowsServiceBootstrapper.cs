@@ -37,7 +37,7 @@ namespace WindowsServiceBootstrapper
         /// <summary>
         /// The Windows service controller factory.
         /// </summary>
-        private readonly Func<string, IWindowsServiceController> serviceControllerFactory;
+        private readonly Func<IWindowsServiceController> serviceControllerFactory;
 
         /// <summary>
         /// The Windows service information provider.
@@ -62,7 +62,7 @@ namespace WindowsServiceBootstrapper
         /// </exception>
         public TopShelfWindowsServiceBootstrapper(
             IWindowsServiceInfoProvider windowsServiceInfoProvider, 
-            Func<string, IWindowsServiceController> serviceControllerFactory)
+            Func<IWindowsServiceController> serviceControllerFactory)
         {
             if (windowsServiceInfoProvider == null)
             {
@@ -89,22 +89,22 @@ namespace WindowsServiceBootstrapper
         {
             HostFactory.Run(
                 x =>
-                {
-                    this.Configure(x);
+                    {
+                        this.Configure(x);
 
-                    this.SetServiceInfo(x);
+                        this.SetServiceInfo(x);
 
-                    x.Service<IWindowsServiceController>(
-                        s =>
-                        {
-                            s.ConstructUsing(name => this.serviceControllerFactory(name));
+                        x.Service<IWindowsServiceController>(
+                            s =>
+                                {
+                                    s.ConstructUsing(() => serviceControllerFactory());
 
-                            s.WhenStarted(winService => winService.OnStart());
-                            s.WhenPaused(winService => winService.OnPause());
-                            s.WhenContinued(winService => winService.OnContinue());
-                            s.WhenStopped(winService => winService.OnStop());
-                        });
-                });
+                                    s.WhenStarted(winService => winService.OnStart());
+                                    s.WhenPaused(winService => winService.OnPause());
+                                    s.WhenContinued(winService => winService.OnContinue());
+                                    s.WhenStopped(winService => winService.OnStop());
+                                });
+                    });
         }
 
         #endregion

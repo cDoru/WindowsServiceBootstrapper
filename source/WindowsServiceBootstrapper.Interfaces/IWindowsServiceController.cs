@@ -25,15 +25,6 @@ namespace WindowsServiceBootstrapper.Interfaces
     /// </summary>
     public interface IWindowsServiceController
     {
-        #region Public Properties
-
-        /// <summary>
-        /// Gets current Windows service name.
-        /// </summary>
-        string ServiceName { get; }
-
-        #endregion
-
         #region Public Methods and Operators
 
         /// <summary>

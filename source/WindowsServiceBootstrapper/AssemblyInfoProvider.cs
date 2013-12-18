@@ -79,7 +79,7 @@ namespace WindowsServiceBootstrapper
         {
             var companyInfo = this.assembly.GetCustomAttribute<AssemblyCompanyAttribute>().Company;
             var productInfo = this.assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
-            var assemblyVersion = this.assembly.GetName().Version;
+            var assemblyVersion = this.GetServiceVersion();
 
             return string.Format("{0} {1} {2}", companyInfo, productInfo, assemblyVersion);
         }
@@ -93,6 +93,19 @@ namespace WindowsServiceBootstrapper
         public string GetServiceDescription()
         {
             return this.assembly.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
+        }
+
+        /// <summary>
+        /// Get service version.
+        /// </summary>
+        /// <returns>
+        /// The informational version from assembly.
+        /// </returns>
+        protected virtual string GetServiceVersion()
+        {
+            var informationalVersion = this.assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+
+            return informationalVersion.InformationalVersion;
         }
     }
 }

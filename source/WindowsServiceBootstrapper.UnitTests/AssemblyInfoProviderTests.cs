@@ -90,7 +90,7 @@ namespace WindowsServiceBootstrapper.UnitTests
             {
                 var company = this.assembly.GetCustomAttribute<AssemblyCompanyAttribute>().Company;
                 var product = this.assembly.GetCustomAttribute<AssemblyProductAttribute>().Product;
-                var version = this.assembly.GetName().Version;
+                var version = this.assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
 
                 var expectedServiceName = string.Format("{0} {1} {2}", company, product, version);
 

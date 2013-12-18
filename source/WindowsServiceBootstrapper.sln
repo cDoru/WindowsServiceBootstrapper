@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceBootstrapper", "WindowsServiceBootstrapper\WindowsServiceBootstrapper.csproj", "{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServiceBootstrapper.Interfaces", "WindowsServiceBootstrapper.Interfaces\WindowsServiceBootstrapper.Interfaces.csproj", "{508875C7-294F-41A5-9BE1-7D0C17CB3526}"

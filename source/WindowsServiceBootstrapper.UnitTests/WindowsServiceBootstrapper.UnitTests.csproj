@@ -35,7 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -46,9 +46,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\WindowsServiceBootstrapper.Interfaces\WindowsServiceBootstrapper.Interfaces.csproj">
       <Project>{508875C7-294F-41A5-9BE1-7D0C17CB3526}</Project>
       <Name>WindowsServiceBootstrapper.Interfaces</Name>
@@ -57,6 +54,10 @@
       <Project>{DE6BBB0D-2C1F-4359-B23E-DB9036439D8D}</Project>
       <Name>WindowsServiceBootstrapper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

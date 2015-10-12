@@ -44,6 +44,11 @@ namespace WindowsServiceBootstrapper
         /// </summary>
         private readonly IWindowsServiceInfoProvider windowsServiceInfoProvider;
 
+        /// <summary>
+        /// Custom configuration actions.
+        /// </summary>
+        private readonly Action<HostConfigurator> customConfiguratonAction;
+
         #endregion
 
         #region Constructors and Destructors
@@ -57,12 +62,16 @@ namespace WindowsServiceBootstrapper
         /// <param name="serviceControllerFactory">
         /// The Windows service controller factory.
         /// </param>
+        /// <param name="customConfiguratonAction">
+        /// Custom configuration actions.
+        /// </param>
         /// <exception cref="ArgumentNullException">
         /// Throws when <paramref name="windowsServiceInfoProvider"/> or <paramref name="serviceControllerFactory"/> is null.
         /// </exception>
         public TopShelfWindowsServiceBootstrapper(
             IWindowsServiceInfoProvider windowsServiceInfoProvider, 
-            Func<IWindowsServiceController> serviceControllerFactory)
+            Func<IWindowsServiceController> serviceControllerFactory,
+            Action<HostConfigurator> customConfiguratonAction)
         {
             if (windowsServiceInfoProvider == null)
             {
@@ -74,8 +83,14 @@ namespace WindowsServiceBootstrapper
                 throw new ArgumentNullException("serviceControllerFactory");
             }
 
+            if (customConfiguratonAction == null)
+            {
+                throw new ArgumentNullException("customConfiguratonAction");
+            }
+
             this.windowsServiceInfoProvider = windowsServiceInfoProvider;
             this.serviceControllerFactory = serviceControllerFactory;
+            this.customConfiguratonAction = customConfiguratonAction;
         }
 
         #endregion
@@ -125,14 +140,14 @@ namespace WindowsServiceBootstrapper
             configurator.RunAsLocalService();
             configurator.StartAutomatically();
 
-            // use NLog to log message
-            configurator.UseNLog();
-
             // enable pause and continue
             configurator.EnablePauseAndContinue();
 
             // enable shutdown
             configurator.EnableShutdown();
+
+            // run any custom configurations
+            this.customConfiguratonAction(configurator);
         }
 
         /// <summary>

@@ -75,8 +75,8 @@ namespace WindowsServiceBootstrapper.UnitTests
             {
                 var assemblyDescription = this.assembly.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
 
-                string serviceDescription = null;
-                Assert.DoesNotThrow(() => serviceDescription = this.serviceInfoProvider.GetServiceDescription());
+                string serviceDescription;
+                serviceDescription = this.serviceInfoProvider.GetServiceDescription();
                 Assert.NotNull(serviceDescription);
 
                 Assert.Equal(assemblyDescription, serviceDescription);
@@ -94,9 +94,9 @@ namespace WindowsServiceBootstrapper.UnitTests
 
                 var expectedServiceName = string.Format("{0} {1} {2}", company, product, version);
 
-                string serviceDisplayName = null;
+                string serviceDisplayName;
 
-                Assert.DoesNotThrow(() => serviceDisplayName = this.serviceInfoProvider.GetServiceDisplayName());
+                serviceDisplayName = this.serviceInfoProvider.GetServiceDisplayName();
                 Assert.NotNull(serviceDisplayName);
                 Assert.Equal(expectedServiceName, serviceDisplayName);
             }
@@ -109,8 +109,8 @@ namespace WindowsServiceBootstrapper.UnitTests
             {
                 var name = this.assembly.GetName().Name;
 
-                string serviceName = null;
-                Assert.DoesNotThrow(() => serviceName = this.serviceInfoProvider.GetServiceName());
+                string serviceName;
+                serviceName = this.serviceInfoProvider.GetServiceName();
                 Assert.NotNull(serviceName);
 
                 Assert.Equal(name, serviceName);
